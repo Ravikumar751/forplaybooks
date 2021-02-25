@@ -1,0 +1,15 @@
+---
+- name: install tomcat using apt or yum
+  hosts: all
+  tasks:                                                  
+   - block: 
+      - name: install tomcat8 using apt
+        apt:
+         name: tomcat8
+         state: present
+     rescue:
+      - name: install tomcat8 using yum
+        yum:
+         name: tomcat8
+         state: present      
+                  
